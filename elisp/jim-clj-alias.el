@@ -72,4 +72,9 @@
           (message "这是一个React组件")
         (message res)))))
 
+(defun js->clj ()
+  "用于将js的对象转为cljs的对象来编辑"
+  (interactive)
+  (insert " (cljs.pprint/pprint (js->clj js/obj :keywordize-keys true))"))
+
 (provide 'jim-clj-alias)
