@@ -42,6 +42,17 @@
 ")
   )
 
+(defun recur ()
+  "递归脚手架: 开始输入值,递归死循环,递归停止条件,从高阶函数的重复特征到递归"
+  (interactive)
+  (insert
+   "
+(loop [i 0]
+    (when (< i 5)
+      (println i)
+      (recur (inc i))))
+"))
+
 (defun for-key ()
   (interactive)
   (insert "^{:key item}"))
