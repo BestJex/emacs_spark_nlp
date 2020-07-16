@@ -43,7 +43,29 @@
   )
 
 (defun recur ()
-  "递归脚手架: 开始输入值,递归死循环,递归停止条件,从高阶函数的重复特征到递归"
+  "递归脚手架: 开始输入值,递归死循环,递归停止条件,从高阶函数的重复特征(用Postwalk函数来快速找数据特征值cond,然后改写成尾递归的方式)到递归"
+  (interactive)
+  "
+(def factorial
+  (fn [n]
+    (loop [cnt n
+           acc 1]
+      (if (zero? cnt)
+        acc
+        (recur (dec cnt) (* acc cnt))))))
+")
+
+(defun recur1 ()
+  (interactive)
+  (insert
+   "
+(loop [ele start-ele]
+  (if (re-matches #\"some-div-id-(.*)\"  (.-id ele))
+    (.-id ele)
+    (recur (.-parentElement ele))))
+"))
+
+(defun recur2 ()
   (interactive)
   (insert
    "
